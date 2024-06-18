@@ -24,7 +24,7 @@ jobs:
           npm install -g mustache
           touch data.json
           TAG_NAME=$(curl -s "https://api.github.com/repos/AppiumTestDistribution/appium-flutter-server/tags" | grep -m 1 '"name"' | sed -E 's/.*"name": "([^"]+)".*/\1/')
-          echo "{\"COMMIT_ID\": \"$TAG_NAME\"}" > data.json
+          echo "{\"COMMIT_ID\": \"${{ github.event.client_payload.version }}\"}" > data.json
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git status
