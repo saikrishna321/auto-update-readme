@@ -1,6 +1,6 @@
-## Hey, I'm Ryan! 👋
+## Hey, I'm Sai Krishna! 👋
 
-Currently a student in Singapore, passionate about creating all-things-tech to improve society.
+
 
 ---
 
@@ -16,4 +16,3 @@ Currently a student in Singapore, passionate about creating all-things-tech to i
 
 ---
 
-**Learn more about me at [ryanthe.com](https://www.ryanthe.com)!**
