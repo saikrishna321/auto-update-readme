@@ -30,20 +30,15 @@ jobs:
           echo "Running on branch: '$BRANCH_NAME'"
             if [[ "$BRANCH_NAME" = "main" ]]; then
               git pull --rebase origin main
-              echo "COMMIT_ID=0.1.1"
+              cat data.json
               mustache data.json template.mustache > README_new.md
-              awk -v id="$COMMIT_ID" '{gsub("commit-.*-blue", "commit-"id"-blue")}1' README.md > README_new.md
               mv README_new.md README.md
-              if [ -n "$(git status --porcelain)" ]; then
-                echo "There are changes in 'main'. Update README"
-                git add README.md
-                git commit -m "Update README with latest commit ID - $COMMIT_ID"
-                git push -u origin main
-              else
-                echo "No local changes in 'main'. Nothing to update in the README."
-              fi
-            else
-              echo "Not running in 'main'. No need to update README for branch: '$BRANCH_NAME'"
+              rm -rf data.json
+              echo "There are changes in 'main'. Update README"
+              git add README.md
+              git commit -m "Update README with latest commit ID - $COMMIT_ID"
+              git push -u origin main
+            
             fi
         env:
           GITHUB_TOKEN: ${{ secrets.UPDATE_TOKEN }}
