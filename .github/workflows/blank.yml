@@ -30,6 +30,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.UPDATE_TOKEN }}
         with:
-         header: "Hey, I'm Ryan! 👋"
-         subhead: "Currently a student in Singapore, passionate about creating all-things-tech to improve society."
-         footer: "**Learn more about me at [ryanthe.com](https://www.ryanthe.com)!**"
+         header: "Hey, I'm Sai Krishna! 👋"
