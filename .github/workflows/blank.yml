@@ -18,6 +18,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      - name: Get the latest aritifact from upstream 
+        run: | 
+         release_info=$(curl -s https://api.github.com/repos/saikrishna321/trigger-workflow/releases/latest)
+         asset_url=$(echo "$release_info" | grep "browser_download_url" | head -n 1 | cut -d '"' -f 4)
+         echo $asset_url
 
       - name: Update README with latest commit id and push to repo
         run: |
